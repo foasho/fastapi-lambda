@@ -6,9 +6,6 @@ services:
     volumes:
       - .:/app
     command: >
-      sh -c "if [ \"$SERVER_DEBUG\" = \"True\" ]; 
-             then uvicorn main:app --host 0.0.0.0 --port 8000 --reload; 
-             else gunicorn -k uvicorn.workers.UvicornWorker main:app --workers 4 --bind 0.0.0.0:8000; 
-             fi"
+      sh -c "uvicorn main:app --host 0.0.0.0 --port 8009 --reload"
     ports:
-      - "8000:8000"
+      - "8009:8009"
